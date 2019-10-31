@@ -70,8 +70,18 @@ void run(){
 }
 
 void hi(){
-  String a = "<h1>Olá, estou com você e não largo ^^</h1>";
-  server.send(200, "text/html", a);
+  String a = "<h1>Ola, estou com voce e nao largo ^^</h1>";
+  String t = "<h1>Car updated ^^</h1><h2 style=\"color:blue\">";
+  int w0 = digitalRead(pinMotor0);
+  int w1 = digitalRead(pinMotor1);
+  int w2 = digitalRead(pinMotor2);
+  int w3 = digitalRead(pinMotor3);
+  t += w0; 
+  t += w1;
+  t += w2;
+  t += w3;
+  t += "</h2>";
+  server.send(200, "text/html", a+t);
 }
 
 void loop() {
