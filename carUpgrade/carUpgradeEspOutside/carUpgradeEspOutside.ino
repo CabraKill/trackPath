@@ -41,8 +41,9 @@ void setup() {
   server.on("/run", run);
   server.on("/hi", hi);
   server.begin(); //Start the server
-  //Serial.begin(9600);
-  //Serial.println("Server listening");
+  Serial.begin(9600);
+  Serial.println("Server listening");
+  Serial.println(WiFi.localIP());
 
 }
 void run(){
@@ -50,6 +51,10 @@ void run(){
   String w1 = server.arg("w1");
   String w2 = server.arg("w2");
   String w3 = server.arg("w3");
+  /*digitalWrite(pinMotor0,w0.toInt());
+  digitalWrite(pinMotor1,w1.toInt());
+  digitalWrite(pinMotor2,w2.toInt());
+  digitalWrite(pinMotor3,w3.toInt());*/
   digitalWrite(pinMotor0,w0.toInt());
   digitalWrite(pinMotor1,w1.toInt());
   digitalWrite(pinMotor2,w2.toInt());

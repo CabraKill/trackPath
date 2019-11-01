@@ -8,7 +8,7 @@
 #define pinEsp2 A2
 #define pinEsp3 A3
 
-float pot = 0.35;
+float pot = 0.25;
 float precisao0 = 5/100;
 void setup() {
   //Serial.begin(9600);

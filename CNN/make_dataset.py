@@ -3,7 +3,8 @@ import os
 
 cap = cv2.VideoCapture(0)
 while True:
-    location = "C:\\Users\\Rapha\\Desktop\\Nova pasta\\CNN test\\data"
+    #location = "C:\\Users\\Rapha\\Desktop\\Nova pasta\\CNN test\\data"
+    location = "C:\\Users\\Rapha\\Desktop\\Citeng\\datasets\\inTheGround"
     ret, frame = cap.read()
     cv2.imshow("Video", frame)
    

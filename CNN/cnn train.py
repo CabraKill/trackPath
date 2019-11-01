@@ -53,7 +53,7 @@ class LeNet:
 
 
 # provide the path where your training images are present
-dataset = 'C:\\Users\\Rapha\\Desktop\\Nova pasta\\CNN test\\data\\all'
+dataset = 'C:\\Users\\Rapha\\Desktop\\Citeng\\datasets\\inTheGround\\all'
 # initialize the number of epochs to train for, initial learning rate,
 # and batch size
 EPOCHS = 15
