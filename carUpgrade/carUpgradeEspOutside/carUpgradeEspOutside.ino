@@ -55,10 +55,16 @@ void run(){
   digitalWrite(pinMotor1,w1.toInt());
   digitalWrite(pinMotor2,w2.toInt());
   digitalWrite(pinMotor3,w3.toInt());*/
-  digitalWrite(pinMotor0,w0.toInt());
+  
+  /*digitalWrite(pinMotor0,w0.toInt());
   digitalWrite(pinMotor1,w1.toInt());
   digitalWrite(pinMotor2,w2.toInt());
-  digitalWrite(pinMotor3,w3.toInt());
+  digitalWrite(pinMotor3,w3.toInt());*/
+  analogWrite(pinMotor0,w0.toInt());
+  analogWrite(pinMotor1,w1.toInt());
+  analogWrite(pinMotor2,w2.toInt());
+  analogWrite(pinMotor3,w3.toInt());
+  
   
   //Serial.print(w0.toInt());
   //Serial.print(w1.toInt());

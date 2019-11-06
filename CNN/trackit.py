@@ -24,9 +24,10 @@ while True:
     image = img_to_array(image)
     image = np.array(image, dtype="float") / 255.0
     image = image.reshape(-1, 28, 28, 3)
-    prediction = np.argmax(model.predict(image))
+    predictionResult = model.predict(image)
+    prediction = np.argmax(predictionResult)
     cv2.putText(img=frame, fontScale=1.5, color=(255, 0, 0),
-                text="predict: {}[{}]".format(prediction, lista[prediction]),
+                text="predict: {}[{}][{}]%".format(prediction, lista[prediction],predictionResult[0][prediction]),
                 thickness=3, fontFace=cv2.FONT_HERSHEY_SIMPLEX, org=(50, 50))
     cv2.imshow("Video", frame)
     k = cv2.waitKey(30) & 0xff

@@ -13,6 +13,7 @@ IPAddress dns(8, 8, 8, 8);  //DNS
 const char* deviceName = "esp'Ael";
 ESP8266WebServer server(80); //Server on port 80
 void setup() {
+
   
   pinMode(pinMotor0, OUTPUT);
   pinMode(pinMotor1, OUTPUT);
@@ -32,15 +33,17 @@ void setup() {
   WiFi.begin("Ric Net", "jrspcmcs03");
   while (WiFi.status() != WL_CONNECTED) { //Wait for connection
     delay(500);
-    Serial.println("Waiting to connect…");
+    //Serial.println("Waiting to connect…");
   }
-  Serial.print("IP address: ");
-  Serial.println(WiFi.localIP()); //Print the local IP
+  //Serial.print("IP address: ");
+  //Serial.println(WiFi.localIP()); //Print the local IP
   
   server.on("/run", run);
+  server.on("/hi", hi);
   server.begin(); //Start the server
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println("Server listening");
+  Serial.println(WiFi.localIP());
 
 }
 void run(){
@@ -48,25 +51,56 @@ void run(){
   String w1 = server.arg("w1");
   String w2 = server.arg("w2");
   String w3 = server.arg("w3");
-  digitalWrite(pinMotor0,w0.toInt());
+  /*digitalWrite(pinMotor0,w0.toInt());
   digitalWrite(pinMotor1,w1.toInt());
   digitalWrite(pinMotor2,w2.toInt());
-  digitalWrite(pinMotor3,w3.toInt());
+  digitalWrite(pinMotor3,w3.toInt());*/
   
-  Serial.print(w0.toInt());
-  Serial.print(w1.toInt());
-  Serial.print(w2.toInt());
-  Serial.println(w3.toInt());
-  String t = "<h1>Car updated ^^</h1> ";//+"<h2>" + w0.toInt() + w1.toInt() + w2.toInt() + w3.toInt() + "</h2>";
-  t+= "<h2>";
+  /*digitalWrite(pinMotor0,w0.toInt());
+  digitalWrite(pinMotor1,w1.toInt());
+  digitalWrite(pinMotor2,w2.toInt());
+  digitalWrite(pinMotor3,w3.toInt());*/
+  analogWrite(pinMotor0,w0.toInt());
+  analogWrite(pinMotor1,w1.toInt());
+  analogWrite(pinMotor2,w2.toInt());
+  analogWrite(pinMotor3,w3.toInt());
+  
+  
+  //Serial.print(w0.toInt());
+  //Serial.print(w1.toInt());
+  //Serial.print(w2.toInt());
+  //Serial.println(w3.toInt());
+  String t = "Estados das entradas: ";
+
   t+= w0.toInt();
   t+= w1.toInt();
   t+= w2.toInt();
   t+= w3.toInt();
-  t+= "</h2>";
-  server.send(200, "text/html", t);
+
+  server.send(200, "text", t);
+}
+
+void hi(){
+  String a = "<h1>Ola, estou com voce e nao largo ^^</h1>";
+  String t = "<h1>Car updated ^^</h1><h2 style=\"color:blue\">";
+  int w0 = digitalRead(pinMotor0);
+  int w1 = digitalRead(pinMotor1);
+  int w2 = digitalRead(pinMotor2);
+  int w3 = digitalRead(pinMotor3);
+  t += w0; 
+  t += w1;
+  t += w2;
+  t += w3;
+  t += "</h2>";
+  server.send(200, "text/html", a+t);
 }
 
 void loop() {
   server.handleClient();
 }
+
+//String t = "<h1>Car updated ^^</h1> ";//+"<h2>" + w0.toInt() + w1.toInt() + w2.toInt() + w3.toInt() + "</h2>";
+  //t+= "</h2>";
+  //server.send(200, "text/html", t);
+  //t+= "<h2>";
+  

@@ -25,7 +25,7 @@ void loop() {
   analogWrite(pinMotor1, 0);
   analogWrite(pinMotor2, pot);
   analogWrite(pinMotor3, 0);
-  delay(2000);
+  delay(6000);
   analogWrite(pinMotor0, 0);
   analogWrite(pinMotor1, pot);
   analogWrite(pinMotor2, 0);
@@ -34,5 +34,5 @@ void loop() {
   digitalWrite(pinMotor1, LOW);
   digitalWrite(pinMotor2, HIGH);
   digitalWrite(pinMotor3, LOW);*/
-  delay(2000);
+  delay(6000);
 }
