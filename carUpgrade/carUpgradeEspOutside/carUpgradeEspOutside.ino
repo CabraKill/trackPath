@@ -1,10 +1,10 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 
-#define pinMotor0 16
-#define pinMotor1 5
-#define pinMotor2 4
-#define pinMotor3 0
+#define pinMotor0 16 //Fio Vermelho
+#define pinMotor1 5  //Fio Preto
+#define pinMotor2 4  //Fio Verde
+#define pinMotor3 0  //Fio Amarelo
  
 IPAddress staticIP(192, 168, 0, 69);
 IPAddress gateway(192, 168, 0, 1);   //IP Address of your WiFi Router (Gateway)

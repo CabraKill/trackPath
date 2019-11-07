@@ -1,7 +1,7 @@
-#define pinMotor0 11
-#define pinMotor1 10
-#define pinMotor2 6
-#define pinMotor3 5
+#define pinMotor0 11 //Fio Vermelho
+#define pinMotor1 10 //Fio Preto
+#define pinMotor2 6  //Fio Verde
+#define pinMotor3 5  //Fio Amarelo
 
 #define pinEsp0 A0
 #define pinEsp1 A1

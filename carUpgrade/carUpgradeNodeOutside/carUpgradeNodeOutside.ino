@@ -1,10 +1,10 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 
-#define pinMotor0 16
-#define pinMotor1 5
-#define pinMotor2 4
-#define pinMotor3 0
+#define pinMotor0 5  //Fio Vermelho
+#define pinMotor1 4  //Fio Preto
+#define pinMotor2 0  //Fio Verde
+#define pinMotor3 2  //Fio Amarelo
  
 IPAddress staticIP(192, 168, 0, 69);
 IPAddress gateway(192, 168, 0, 1);   //IP Address of your WiFi Router (Gateway)
@@ -73,8 +73,11 @@ void run(){
   String t = "Estados das entradas: ";
 
   t+= w0.toInt();
+  t += "|"; 
   t+= w1.toInt();
+  t += "|"; 
   t+= w2.toInt();
+  t += "|"; 
   t+= w3.toInt();
 
   server.send(200, "text", t);
@@ -87,9 +90,12 @@ void hi(){
   int w1 = digitalRead(pinMotor1);
   int w2 = digitalRead(pinMotor2);
   int w3 = digitalRead(pinMotor3);
-  t += w0; 
+  t += w0;
+  t += "|"; 
   t += w1;
+  t += "|"; 
   t += w2;
+  t += "|"; 
   t += w3;
   t += "</h2>";
   server.send(200, "text/html", a+t);

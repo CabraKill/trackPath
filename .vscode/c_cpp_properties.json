@@ -3,6 +3,10 @@
         {
             "name": "Win32",
             "includePath": [
+                "C:\\Users\\Rapha\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\**",
+                "C:\\Users\\Rapha\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.5.2\\**",
+                "D:\\Arquivos Windows\\Instalacoes\\Arduino\\tools\\**",
+                "D:\\Arquivos Windows\\Instalacoes\\Arduino\\hardware\\arduino\\avr\\**",
                 "${workspaceFolder}/**"
             ],
             "defines": [
@@ -10,7 +14,8 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "intelliSenseMode": "msvc-x64"
+            "intelliSenseMode": "msvc-x64",
+            "forcedInclude": []
         }
     ],
     "version": 4
